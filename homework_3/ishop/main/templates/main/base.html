@@ -17,12 +17,12 @@
 </head>
 <body>
     <header>
-        <a href="">
+        <a href="{% url 'homepage' %}">
             <img class="logo" src="{% static 'main/images/logo.png' %}" alt="logo">
         </a>
-        <a href="">Catalog</a>
-        <a href="">Orders</a>
-        <a href="">Contacts</a>
+        <a href="{% url 'homepage' %}">Catalog</a>
+        <a href="{% url 'orders_page' %}">Orders</a>
+        <a href="{% url 'contacts_page' %}">Contacts</a>
     </header>
     <main>
         {%block content%}
