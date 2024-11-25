@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>iShop</title>
+    <title>
+        {%block title%}iShop{%endblock%}
+    </title>
+    <link rel="stylesheet" href="">
+    <link rel="shortcut icon" href="{% static 'main/images/icon.png' %}" type="image/x-icon">
 </head>
 <body>
+    <header>
+        <a href="">
+            <img src="{% static 'main/images/logo.png' %}" alt="Logo">
+        </a>
+        <a href="">Catalog</a>
+        <a href="">Orders</a>
+        <a href="">Contacts</a>
+    </header>
+    <main>
+        {%block content%}
 
+        {%endblock%}
+    </main>
 </body>
 </html>
