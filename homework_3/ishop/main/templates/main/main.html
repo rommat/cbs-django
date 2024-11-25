@@ -5,5 +5,26 @@
 {% block title %}Catalog | iShop{% endblock %}
 
 {% block content %}
-    <h1>Catalog</h1>
+
+    <div class="categories_list">
+        {% for category in categories_list %}
+            <div class="category">
+                <div class="header">
+                    <h2>{{category.name|title}}</h2>
+                </div>
+                <div class="body">
+                    <p>{{category.description}}</p>
+                    <ul>
+                        {% for product in category.all_products %}
+                            <li>{{product.name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="footer">
+                    <a href="">Детальніше</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
 {% endblock %}
