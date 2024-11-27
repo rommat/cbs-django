@@ -3,7 +3,7 @@
 {% block content %}
     {% for student in students %}
         <p>
-            <a href="">
+            <a href="{% url 'studentgrades' student_id=student.id %}">
                 {{student.first_name}} {{student.last_name}}
             </a>
         </p>
