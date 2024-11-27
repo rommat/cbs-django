@@ -6,7 +6,8 @@
     <title>
         {%block title%}GradeBook{%endblock%}
     </title>
-    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
     <link rel="shortcut icon" href="{% static 'main/images/logo.png' %}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,18 +17,18 @@
     {% endblock %}
 </head>
 <body>
-    <header>
-        <a href="{% url 'homepage' %}">
-            <img class="logo" src="{% static 'main/images/logo.png' %}" alt="logo">
-        </a>
-        <a href="{% url 'homepage' %}">GradeBook</a>
-        <a href="{% url 'homepage' %}">Students</a>
-        <a href="{% url 'homepage' %}">Subjects</a>
-    </header>
-    <main>
-        {% block content %}
-        {% endblock  %}
-    </main>
-
+    <div class="w3-container">
+        <header>
+            <div class="w3-bar w3-black">
+                <a href="{% url 'homepage' %}" class="w3-bar-item w3-button">Home</a>
+                <a href="{% url 'homepage' %}" class="w3-bar-item w3-button">Students</a>
+                <a href="{% url 'homepage' %}" class="w3-bar-item w3-button">Subjects</a>
+            </div>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock  %}
+        </main>
+    </div>
 </body>
 </html>
