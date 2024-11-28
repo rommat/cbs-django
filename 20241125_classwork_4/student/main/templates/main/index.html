@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    {% for student in students %}
+        <div class="w3-container">
+            <div class="w3-card-4 w3-margin-left w3-panel w3-padding-16 w3-hover-grey" style="width:50%">
+                <a href="{% url 'studentgrades' student_id=student.id %}">
+                    {{student.first_name}} {{student.last_name}}
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock  %}

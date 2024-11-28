@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% load static %}
+
+{% block title %}Catalog | iShop{% endblock %}
+
+{% block content %}
+
+    <div class="w3-container">
+        {% for category in categories %}
+            <div class="category">
+                <div class="header">
+                    <h2>{{category.name|title}}</h2>
+                </div>
+                <div class="body">
+                    <p>{{category.description}}</p>
+                    <ul>
+                        {% for product in category.all_products %}
+                            <li>{{product.name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="footer">
+                    <a href="{% url 'category_page' category_id=category.id %}">Детальніше</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
