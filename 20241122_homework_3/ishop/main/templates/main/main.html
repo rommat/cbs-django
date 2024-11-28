@@ -7,7 +7,7 @@
 {% block content %}
 
     <div class="w3-container">
-        <div class="w3-container w3-light-blue">
+        <div class="w3-container w3-indigo">
             <h1>Каталог товарів</h1>
         </div>
         <div class="w3-row w3-round w3-padding-16">
@@ -32,25 +32,5 @@
              {% endfor %}
         </div>
     </div>
-
-
-<!--    <div class="w3-container">-->
-<!--        {% for category in categories %}-->
-<!--            <div class="category">-->
-<!--                <div class="header">-->
-<!--                    <h2>{{category.name|title}}</h2>-->
-<!--                </div>-->
-<!--                <div class="body">-->
-<!--                    <p>{{category.description}}</p>-->
-<!--                    <ul>-->
-<!--                        {% for product in category.all_products %}-->
-<!--                            <li>{{product.name}}</li>-->
-<!--                        {% endfor %}-->
-<!--                    </ul>-->
-<!--                </div>-->
-
-<!--            </div>-->
-<!--        {% endfor %}-->
-<!--    </div>-->
 
 {% endblock %}

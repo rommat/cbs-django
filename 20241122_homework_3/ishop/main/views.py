@@ -42,6 +42,7 @@ class Product:
         self.price = price  # Ціна товару
         self.quantity = quantity  # Кількість товару на складі
         self.properties = properties if properties else []  # Список властивостей товару
+        self.id = -1
         category.add_product(self)  # Додаємо товар до відповідної категорії
 
     def add_property(self, property):
@@ -234,6 +235,8 @@ categories = [electronics, clothing, food, sports, toys]
 
 for idx, item in enumerate(categories):
     item.id = idx
+    for num, thing in enumerate(item.all_products):
+        thing.id = num
 
 # for category in categories:
 #     print(f"\nКатегорія: {category.name}")
@@ -257,6 +260,17 @@ def category_page(request: HttpRequest, category_id: int):
     context = {'category': category,}
 
     return render(request, 'main/category.html', context)
+
+
+def product_page(request: HttpRequest, category_id, product_id: int):
+    category = categories[category_id]
+    product = category.all_products[product_id]
+    context = {
+        'category': category,
+        'product': product,
+    }
+
+    return render(request, 'main/product.html', context)
 
 
 def orders_page(request: HttpRequest):

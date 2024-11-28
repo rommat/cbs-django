@@ -15,7 +15,7 @@
         <ul class="w3-ul w3-hoverable w3-border">
             {% for product in category.all_products %}
                 <li>
-                    <a href="#">{{product.name}}</a>
+                    <a href="{% url 'product_page' category_id=category.id product_id=product.id %}">{{product.name}}</a>
                 </li>
             {% endfor %}
         </ul>
