@@ -7,24 +7,50 @@
 {% block content %}
 
     <div class="w3-container">
-        {% for category in categories %}
-            <div class="category">
-                <div class="header">
-                    <h2>{{category.name|title}}</h2>
+        <div class="w3-container w3-light-blue">
+            <h1>Каталог товарів</h1>
+        </div>
+        <div class="w3-row w3-round w3-padding-16">
+             {% for category in categories %}
+                <div class="w3-third w3-container w3-padding-16">
+                    <div class="w3-card-4 w3-border">
+                        <div class="w3-container w3-deep-purple">
+                            <header>
+                                <h1>{{category.name}}</h1>
+                            </header>
+                        </div>
+                        <div class="w3-container">
+                            <p>{{category.description}}</p>
+                        </div>
+                        <div  class="w3-container w3-light-grey">
+                            <footer>
+                                <a href="{% url 'category_page' category_id=category.id %}">Детальніше</a>
+                            </footer>
+                        </div>
+                    </div>
                 </div>
-                <div class="body">
-                    <p>{{category.description}}</p>
-                    <ul>
-                        {% for product in category.all_products %}
-                            <li>{{product.name}}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div class="footer">
-                    <a href="{% url 'category_page' category_id=category.id %}">Детальніше</a>
-                </div>
-            </div>
-        {% endfor %}
+             {% endfor %}
+        </div>
     </div>
+
+
+<!--    <div class="w3-container">-->
+<!--        {% for category in categories %}-->
+<!--            <div class="category">-->
+<!--                <div class="header">-->
+<!--                    <h2>{{category.name|title}}</h2>-->
+<!--                </div>-->
+<!--                <div class="body">-->
+<!--                    <p>{{category.description}}</p>-->
+<!--                    <ul>-->
+<!--                        {% for product in category.all_products %}-->
+<!--                            <li>{{product.name}}</li>-->
+<!--                        {% endfor %}-->
+<!--                    </ul>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        {% endfor %}-->
+<!--    </div>-->
 
 {% endblock %}

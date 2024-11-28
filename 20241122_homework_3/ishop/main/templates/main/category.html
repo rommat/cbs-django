@@ -3,20 +3,24 @@
 {% block content %}
 
 <div class="w3-card-4">
-    <header class="w3-container w3-deep-purple">
-        <h1>{{category.name}}</h1>
-    </header>
+    <div class="w3-container w3-deep-purple">
+        <header>
+            <h1>{{category.name}}</h1>
+        </header>
+    </div>
     <div class="w3-container">
         <p>{{category.description}}</p>
     </div>
     <div class="w3-container light-blue w3-padding-16">
         <ul class="w3-ul w3-hoverable w3-border">
             {% for product in category.all_products %}
-                <li><b>{{product.name}}</b></li>
+                <li>
+                    <a href="#">{{product.name}}</a>
+                </li>
             {% endfor %}
         </ul>
     </div>
-    <div  class="w3-container">
+    <div class="w3-container">
         <footer></footer>
     </div>
 </div>
