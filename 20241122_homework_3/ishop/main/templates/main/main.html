@@ -6,8 +6,8 @@
 
 {% block content %}
 
-    <div class="categories_list">
-        {% for category in categories_list %}
+    <div class="w3-container">
+        {% for category in categories %}
             <div class="category">
                 <div class="header">
                     <h2>{{category.name|title}}</h2>
@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 <div class="footer">
-                    <a href="">Детальніше</a>
+                    <a href="{% url 'category_page' category_id=category.id %}">Детальніше</a>
                 </div>
             </div>
         {% endfor %}

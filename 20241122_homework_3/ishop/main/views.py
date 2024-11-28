@@ -4,13 +4,12 @@ from django.http import HttpRequest
 
 # Клас для категорії товарів
 class Category:
-    # all_products = []  # Змінна класу для зберігання всіх товарів у категорії
 
     def __init__(self, name, description=None):
         self.name = name  # Назва категорії
         self.description = description  # Опис категорії (не обов'язковий)
         self.products = []  # Список товарів цієї категорії
-        # Category.all_products.append(self)  # Додаємо категорію до загального списку
+        self.id = -1
 
     def add_product(self, product):
         """Метод для додавання товару до категорії"""
@@ -233,21 +232,31 @@ puzzle.add_property(ProductProperty("Зображення", "https://example.com
 # Виведемо всі категорії та їх товари
 categories = [electronics, clothing, food, sports, toys]
 
-for category in categories:
-    print(f"\nКатегорія: {category.name}")
-    print(category.all_products)
-    print("-" * 30)
-    for product in category.all_products\
-            :
-        print(product)
-        print("-" * 30)
+for idx, item in enumerate(categories):
+    item.id = idx
+
+# for category in categories:
+#     print(f"\nКатегорія: {category.name}")
+#     print(category.all_products)
+#     print("-" * 30)
+#     for product in category.all_products\
+#             :
+#         print(product)
+#         print("-" * 30)
 
 
 # Create your views here.
 def main(request: HttpRequest):
-    context = {'categories_list': categories}
+    context = {'categories': categories}
 
     return render(request, 'main/main.html', context)
+
+
+def category_page(request: HttpRequest, category_id: int):
+    category = categories[category_id]
+    context = {'category': category,}
+
+    return render(request, 'main/category.html', context)
 
 
 def orders_page(request: HttpRequest):

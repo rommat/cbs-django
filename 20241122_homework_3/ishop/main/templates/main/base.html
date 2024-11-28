@@ -6,28 +6,28 @@
     <title>
         {%block title%}iShop{%endblock%}
     </title>
-    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="shortcut icon" href="{% static 'main/images/icon.png' %}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-    {% block extracss %}
-    {% endblock %}
+    {% block extracss %}{% endblock %}
 </head>
 <body>
-    <header>
-        <a href="{% url 'homepage' %}">
-            <img class="logo" src="{% static 'main/images/logo.png' %}" alt="logo">
-        </a>
-        <a href="{% url 'homepage' %}">Catalog</a>
-        <a href="{% url 'orders_page' %}">Orders</a>
-        <a href="{% url 'contacts_page' %}">Contacts</a>
-    </header>
-    <main>
-        {%block content%}
+    <div class="w3-container">
+        <header>
+            <a href="{% url 'homepage' %}">
+                <img src="{% static 'main/images/logo.png' %}" class="w3-image" style="width:100%;max-width:50px" alt="Logo">
+            </a>
+            <a href="{% url 'homepage' %}">Catalog</a>
+            <a href="{% url 'orders_page' %}">Orders</a>
+            <a href="{% url 'contacts_page' %}">Contacts</a>
+        </header>
+        <main>
+            {%block content%}{%endblock%}
+        </main>
+    </div>
 
-        {%endblock%}
-    </main>
 </body>
 </html>
